@@ -240,6 +240,7 @@ function dnsAmplification() {
     try {
         const dns = require('dns');
         const queries = [
+            () => dns.resolve4('cloudflare.com', () => updateStats('dns', true)),           
             () => dns.resolve4('google.com', () => updateStats('dns', true)),
             () => dns.resolve6('facebook.com', () => updateStats('dns', true)),
             () => dns.resolveMx('yahoo.com', () => updateStats('dns', true)),
